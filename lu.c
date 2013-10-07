@@ -1,11 +1,20 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
+/* Things to do:
+ * 1- keep original matrix as matcpy for verification later
+ * 2-
+ */
 int size;
 double **l;
 double **u;
+double **mat;
+double **matcpy;
 
 void printMatrix(double **m) {
+    printf("\n \n");
+
 	int i =0, j=0;
     for (i=0;i<size;i++) {
         for(j=0;j<size;j++) {
@@ -15,9 +24,41 @@ void printMatrix(double **m) {
     }
 }
 
-void verify(){
+void freeMatrix(double **matrix)
+{
+	int i =0;
+    for(i = 0; i < size; i++)
+        free(matrix[i]);
+    free(matrix);
+}
+
+void verify()
+{
+	printf("\n\t\t===== L =====\t\t");
 	printMatrix(l);
+	printf("\n\t\t===== U =====\t\t");
 	printMatrix(u);
+	printf("\n\t\t===== Original =====\t\t");
+	printMatrix(matcpy);
+	printf("\n\t\t===== Product =====\t\t");
+
+	int i=0,j=0,k=0;
+	for (i = 0; i < size; i++)
+	{
+		for (j = 0; j < size; j++)
+		{
+			mat[i][j] = 0;
+			for (k = 0; k < size; k++)
+			{
+				mat[i][j] = mat[i][j] + (l[i][k] * u[k][j]);
+	        }
+	    }
+	}
+    printMatrix(mat);
+    freeMatrix(mat);
+    freeMatrix(matcpy);
+    freeMatrix(l);
+    freeMatrix(u);
 }
 
 void decompose(double **m) {
@@ -26,34 +67,44 @@ void decompose(double **m) {
         for(i = j+1; i < size; i++) {
             double factor = m[i][j]/m[j][j];
             for(k = 0; k < size; k++) {
-            	u[i][k]= m[i][k] - (m[j][k]* factor);
+            	u[i][k]= m[i][k] - (m[j][k] * factor);
             }
             l[i][j] = factor;
         }
-        m = u;
+        //matrix copy m = u
+        for(i =0; i< size; i++) {
+        	for(k=0; k < size; k++) {
+        		m[i][k] = u[i][k];
+        	}
+        }
+        //copy end
     }
+	//freeMatrix(mat);
     for(i = 0; i < size; i++)
         l[i][i] =1;
 }
 
 void generateMatrix(int size)
 {
-    double **mat;
-
+    srand(time(NULL));
     mat = malloc(size * (sizeof *mat));
     u = malloc(size * (sizeof *u));
     l = malloc(size * (sizeof *l));
+    matcpy = malloc(size * (sizeof *matcpy));
 
     int i =0, j=0;
     for( i=0 ; i < size ; i++) {
     	u[i] = malloc((sizeof *u[i]) * size);
     	l[i] = malloc((sizeof *l[i]) * size);
         mat[i] = malloc((sizeof *mat[i]) * size);
+        matcpy[i] = malloc((sizeof *matcpy[i]) * size);
+
         for( j=0 ; j< size; j++) {
             mat[i][j] = rand() % 100;
+            u[i][j] = mat[i][j];
+            matcpy[i][j] = mat[i][j];
         }
     }
-    printMatrix(mat);
     decompose(mat);
     verify();
 }
