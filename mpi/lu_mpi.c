@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include "mpi.h"
 
 /* Things to do:
  * 1- keep original matrix as matcpy for verification later
@@ -11,6 +12,7 @@ int size;
 double **l;
 double **u;
 double **mat;
+int rank, nprocs;
 clock_t begin, end;
 FILE *fp;
 
@@ -78,22 +80,45 @@ void freeMatrix(double **matrix)
 void decompose(double **m) {
 	begin =clock();
 	int i=0, j=0, k=0;
+	MPI_Init(NULL, NULL);
+	MPI_Comm_rank(MPI_COMM_WORLD, &rank);	/* get current process id */
+	MPI_Comm_size(MPI_COMM_WORLD, &nprocs);	/* get number of processes */
+
+
+	int *map =malloc(size * (sizeof *map));
+
+	for(i=0; i<size; i++)
+	{
+		map[i]= i % nprocs;
+	}
+
 	for(j =0; j < size-1; j++) {
-        for(i = j+1; i < size; i++) {
-            double factor = m[i][j]/m[j][j];
-            for(k = 0; k < size; k++) {
-            	u[i][k]= m[i][k] - (m[j][k] * factor);
-            }
-            l[i][j] = factor;
+        if(map[j] == rank)
+        {
+        	for(i = j+1; i < size; i++) {
+        		m[i][j] = m[i][j]/m[j][j];
+        	}
         }
-        //matrix copy m = u
+        MPI_Bcast (&m[j][j],size-j,MPI_DOUBLE,map[j],MPI_COMM_WORLD);
+
+        		for(k = j+1; k < size; k++)
+        		{
+        			if(map[j] == rank)
+        			{
+        				for(i = j+1; i < size; i++) {
+        					m[k][i]= m[k][i] - (m[k][j] * m[j][i]);
+        				}
+        			}
+        		}
+        		//l[i][j] = factor;
+        }
+        /*//matrix copy m = u
         for(i =0; i< size; i++) {
         	for(k=0; k < size; k++) {
         		m[i][k] = u[i][k];
         	}
-        }
+        }*/
         //copy end
-    }
 	//freeMatrix(mat);
     end = clock();
 }
@@ -141,7 +166,6 @@ int main(int argc, char * argv[])
     size = strtol(argv[1],(char **)NULL,10);
     fp = fopen("output.txt","a+");
 
-
   	int successFlag = 0;
   	if(generateMatrix(size) == 1)
     {
@@ -159,6 +183,7 @@ int main(int argc, char * argv[])
   	}
 
   	fprintf(fp,"MatrixSize %d ", size);
+  	fprintf(fp,"Processors %d ", nprocs);
   	fprintf(fp,"Time %f \n", (double)(end - begin) / CLOCKS_PER_SEC);
   	fclose(fp);
   	return 0;
