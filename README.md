@@ -1,8 +1,7 @@
-% Parallel Implementation of LU decomposition
-% Adil Ansari
-% 
+Parallel Implementation of LU decomposition
+======
 
-Basics
+###Basics
 ======
 
 -   Root directory contains three sub-directories namely ’Sequential’,
@@ -27,7 +26,7 @@ Basics
 -   Graphs are generated as **’Plot.pdf’**. *Please wait for the job run
     to finish and outputs to accumulate*.
 
-Sequential Implementation
+###Sequential Implementation
 =========================
 
 -   Gaussian elimination algorithm was implemented that sequentially
@@ -49,7 +48,7 @@ Sequential Implementation
 
 ![Sequential Decomposition Algorithm](Sequential/Plot.png)
 
-OpenMP Implementation
+###OpenMP Implementation
 =====================
 
 -   Gaussian elimination algorithm was implemented that uses the block
@@ -78,7 +77,7 @@ OpenMP Implementation
 
 ![OpenMP Decomposition Algorithm](OpenMP/Plot.png)
 
-MPI Implementation
+###MPI Implementation
 ==================
 
 -   Cyclic distribution was used to accomplish LU factorization of the
@@ -112,7 +111,7 @@ Comparison
 
     ![Sequential vs. OpenMP vs.MPI](Graphs/omp_mpi_seq_siz_time.png)
 
-Scalability
+###Scalability
 ===========
 
 LU factorization algorithm has a great extent of parallelization when
