@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.9.11)  16 OCT 2013 02:43
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=pdflatex 2013.9.11)  16 OCT 2013 03:03
 entering extended mode
  %&-line parsing enabled.
 **Report.tex
@@ -203,39 +203,45 @@ File: Graphs/mpi_core_time.pdf Graphic file (type pdf)
 
 <use Graphs/mpi_core_time.pdf>
 
+pdfTeX warning: /usr/bin/pdflatex (file ./MPI/Plot.pdf): PDF inclusion: found P
+DF version <1.5>, but at most version <1.4> allowed
+<MPI/Plot.pdf, id=62, 505.89pt x 361.35pt>
+File: MPI/Plot.pdf Graphic file (type pdf)
+ <use MPI/Plot.pdf> [4 <./Graphs/mpi_siz_time.pdf> <./Graphs/mpi_core_time.pdf>
+]
+
 pdfTeX warning: /usr/bin/pdflatex (file ./Graphs/omp_mpi_core_time.pdf): PDF in
 clusion: found PDF version <1.5>, but at most version <1.4> allowed
-<Graphs/omp_mpi_core_time.pdf, id=62, 433.62pt x 216.81pt>
+<Graphs/omp_mpi_core_time.pdf, id=83, 433.62pt x 216.81pt>
 File: Graphs/omp_mpi_core_time.pdf Graphic file (type pdf)
 
-<use Graphs/omp_mpi_core_time.pdf> [4 <./Graphs/mpi_siz_time.pdf> <./Graphs/mpi
-_core_time.pdf>]
+<use Graphs/omp_mpi_core_time.pdf>
 
 pdfTeX warning: /usr/bin/pdflatex (file ./Graphs/omp_mpi_seq_siz_time.pdf): PDF
  inclusion: found PDF version <1.5>, but at most version <1.4> allowed
-<Graphs/omp_mpi_seq_siz_time.pdf, id=83, 433.62pt x 216.81pt>
+<Graphs/omp_mpi_seq_siz_time.pdf, id=85, 433.62pt x 216.81pt>
 File: Graphs/omp_mpi_seq_siz_time.pdf Graphic file (type pdf)
 
-<use Graphs/omp_mpi_seq_siz_time.pdf> [5 <./Graphs/omp_mpi_core_time.pdf> <./Gr
-aphs/omp_mpi_seq_siz_time.pdf>] (./Report.aux) ) 
+<use Graphs/omp_mpi_seq_siz_time.pdf> [5 <./MPI/Plot.pdf> <./Graphs/omp_mpi_cor
+e_time.pdf>] [6 <./Graphs/omp_mpi_seq_siz_time.pdf>] (./Report.aux) ) 
 Here is how much of TeX's memory you used:
- 1415 strings out of 495061
- 19077 string characters out of 1182621
+ 1420 strings out of 495061
+ 19152 string characters out of 1182621
  72965 words of memory out of 3000000
- 4612 multiletter control sequences out of 15000+50000
+ 4616 multiletter control sequences out of 15000+50000
  7934 words of font info for 28 fonts, out of 3000000 for 9000
  28 hyphenation exceptions out of 8191
  25i,6n,19p,257b,317s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texmf-texlive/fonts
-/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-texlive/fonts/type1/publ
-ic/amsfonts/cm/cmbx12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts
-/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr12.pf
-b></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/shar
-e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-tex
-live/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on Report.pdf (5 pages, 179612 bytes).
+</usr/shar
+e/texmf-texlive/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/share/texmf-tex
+live/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/share/texmf-texlive/fonts/
+type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/public
+/amsfonts/cm/cmr12.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm
+/cmr17.pfb></usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
+</usr/share/texmf-texlive/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on Report.pdf (6 pages, 201830 bytes).
 PDF statistics:
- 126 PDF objects out of 1000 (max. 8388607)
+ 139 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
