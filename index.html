@@ -4,11 +4,11 @@
   <head>
     <meta charset='utf-8' />
     <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Ludecomposition : LU decomposition of a large matrix using OpenMP and MPI" />
+    <meta name="description" content="Lu Decomposition : LU decomposition of a large matrix using OpenMP and MPI" />
 
     <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
 
-    <title>Ludecomposition</title>
+    <title>Lu Decomposition</title>
   </head>
 
   <body>
@@ -18,7 +18,7 @@
         <header class="inner">
           <a id="forkme_banner" href="https://github.com/adilansari/luDecomposition">View on GitHub</a>
 
-          <h1 id="project_title">Ludecomposition</h1>
+          <h1 id="project_title">Lu Decomposition</h1>
           <h2 id="project_tagline">LU decomposition of a large matrix using OpenMP and MPI</h2>
 
             <section id="downloads">
@@ -73,7 +73,7 @@ nodes won’t do anything.</p></li>
 matrices separately, I ran <strong>out of memory</strong> when matrix size of
 50,000 was tried. This implementation makes two copies of the matrix
 of same size as input.</p></li>
-</ul><p><img src="Sequential/Plot.png" alt="Sequential Decomposition Algorithm"></p>
+</ul><p><img src="http://raw.github.com/adilansari/luDecomposition/master/Sequential/Plot.png" alt="Sequential Decomposition Algorithm"></p>
 
 <h3>
 <a name="openmp-implementation" class="anchor" href="#openmp-implementation"><span class="octicon octicon-link"></span></a>OpenMP Implementation</h3>
@@ -98,7 +98,7 @@ increase in matrix size.</p></li>
 matrices separately, I ran <strong>out of memory</strong> when matrix size of
 50,000 was tried. This implementation makes two copies of the matrix
 of same size as input.</p></li>
-</ul><p><img src="OpenMP/Plot.png" alt="OpenMP Decomposition Algorithm"></p>
+</ul><p><img src="http://raw.github.com/adilansari/luDecomposition/master/OpenMP/Plot.png" alt="OpenMP Decomposition Algorithm"></p>
 
 <h3>
 <a name="mpi-implementation" class="anchor" href="#mpi-implementation"><span class="octicon octicon-link"></span></a>MPI Implementation</h3>
@@ -116,7 +116,7 @@ with a combination of 8, 16, 32 compute nodes working in parallel.</p></li>
 behavior.</p></li>
 <li><p>For fixed workload the parallelism was more effective for larger
 workloads on maximum compute nodes.</p></li>
-</ul><p><img src="MPI/Plot.png" alt="MPI Decomposition Algorithm"></p>
+</ul><p><img src="http://raw.github.com/adilansari/luDecomposition/master/MPI/Plot.png" alt="MPI Decomposition Algorithm"></p>
 
 <h1>
 <a name="comparison" class="anchor" href="#comparison"><span class="octicon octicon-link"></span></a>Comparison</h1>
@@ -126,13 +126,13 @@ workloads on maximum compute nodes.</p></li>
 <p>Since, MPI involves communication overhead between different nodes,
 it was slower as compared to OpenMP.</p>
 
-<p><img src="Graphs/omp_mpi_core_time.png" alt="OpenMP vs. MPI"></p>
+<p><img src="http://raw.github.com/adilansari/luDecomposition/master/Graphs/omp_mpi_core_time.png" alt="OpenMP vs. MPI"></p>
 </li>
 <li>
 <p>As expected sequential algorithm turns out to be the worst performer
 of the three.</p>
 
-<p><img src="Graphs/omp_mpi_seq_siz_time.png" alt="Sequential vs. OpenMP vs.MPI"></p>
+<p><img src="http://raw.github.com/adilansari/luDecomposition/master/Graphs/omp_mpi_seq_siz_time.png" alt="Sequential vs. OpenMP vs.MPI"></p>
 </li>
 </ul><h3>
 <a name="scalability" class="anchor" href="#scalability"><span class="octicon octicon-link"></span></a>Scalability</h3>
@@ -147,7 +147,7 @@ scaled appropriately.</p>
     <!-- FOOTER  -->
     <div id="footer_wrap" class="outer">
       <footer class="inner">
-        <p class="copyright">Ludecomposition maintained by <a href="https://github.com/adilansari">adilansari</a></p>
+        <p class="copyright">Lu Decomposition maintained by <a href="https://github.com/adilansari">adilansari</a></p>
         <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
       </footer>
     </div>
