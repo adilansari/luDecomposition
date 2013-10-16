@@ -1,0 +1,5 @@
+Success MatrixSize 1000 Threads 2 Time 14.660000 
+Success MatrixSize 1000 Threads 4 Time 14.490000 
+Success MatrixSize 1000 Threads 8 Time 14.430000 
+Success MatrixSize 1000 Threads 16 Time 12.010000 
+Success MatrixSize 1000 Threads 32 Time 11.370000 

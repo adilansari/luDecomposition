@@ -1,0 +1,38 @@
+#!/bin/sh
+#SBATCH --partition=general-compute
+#SBATCH --time=45:00
+#SBATCH --nodes=8
+#SBATCH --ntasks=8
+#SBATCH --cpus-per-task=1
+##SBATCH --mem=24000
+#SBATCH --job-name="mpi_1x8"
+#SBATCH --output=mpi_1x8
+#SBATCH --mail-user=mansari@buffalo.edu
+#SBATCH --mail-type=ALL
+##SBATCH --requeue
+#Specifies that the job will be requeued after a node failure.
+#The default is that the job will not be requeued.
+
+
+#export | grep SLURM
+echo "SLURM_JOBID="$SLURM_JOBID
+echo "SLURM_JOB_NODELIST"=$SLURM_JOB_NODELIST
+echo "SLURM_NNODES"=$SLURM_NNODES
+echo "SLURMTMPDIR="$SLURMTMPDIR
+
+echo "working directory = "$SLURM_SUBMIT_DIR
+
+module load intel/13.1
+module load intel-mpi/4.1.1
+module list
+ulimit -s unlimited
+#
+#export I_MPI_DEBUG=4
+#NPROCS=`srun --nodes=${SLURM_NNODES} bash -c 'hostname' |wc -l`
+#echo "NPROCS="$NPROCS
+echo "Launch openmp_test with srun"
+export I_MPI_PMI_LIBRARY=/usr/lib64/libpmi.so
+
+srun ./a.out 1000
+#
+echo "All Done!"
